@@ -1,0 +1,17 @@
+import pandas as pd
+
+# Sample Sales Data
+
+data = {
+    "Region": ["North", "South", "East", "West", "North"],
+    "Sales": [50000, 30000, 45000, 70000, 65000],
+    "Profit": [12000, 8000, 10000, 18000, 15000]
+}
+df = pd.DataFrame(data)
+print("Total Sales:", df["Sales"].sum())
+print("Total Profit:", df["Profit"].sum())
+region_sales = df.groupby("Region")["Sales"].sum()
+print("\nSales by Region:")
+print(region_sales)
+best_region = region_sales.idxmax()
+print(f"\nBest Performing Region: {best_region}")
